@@ -82,9 +82,14 @@ Date: Sat, 03 Feb 2018 20:12:07 GMT
 
 ### Run the Worker Locally
 
-SQS Event Handler:
+Local SQS Event trigger sqs worker handler:
 ```
 sam local invoke Worker -e mockevents/sqs-recieve-msg-event.json
+```
+
+SQS Event Handler trigger sqs error handler:
+```
+sam local invoke Error -e mockevents/sqs-recieve-msg-event.json
 ```
 
 ### Deploy to AWS
@@ -141,3 +146,7 @@ those resources as well.
 :warning: The `sam` tool will throw a nasty stack trace if you try to view the
 logs before the Lambda function has been invoked. Only run this command after
 you have made requests to the corresponding handlers.
+
+---
+Source:
+Extending from [aws-sam-golang-example](https://github.com/cpliakas/aws-sam-golang-example)
